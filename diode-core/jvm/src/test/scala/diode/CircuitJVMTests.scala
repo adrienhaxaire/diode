@@ -106,7 +106,7 @@ object CircuitJVMTests extends TestSuite {
       val actions = for (i <- 0 until 1000) yield RunEffects(Seq(() => Future(Append(i))))
       c.dispatch(ActionBatch(actions: _*))
       // wait for futures to complete
-      Thread.sleep(300)
+      Thread.sleep(3000)
       assert(c.model.list.size == 1000)
       assert(c.model.list != Vector.range(0, 1000))
     }
